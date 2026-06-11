@@ -924,15 +924,17 @@ export default function App() {
                 const clr=atL?"#ff2222":nrL?"#ff6b35":"#1a6fd4";
                 return (
                   <div key={p.id} style={{background:"#131920",border:"1px solid "+(atL?"#ff2222":nrL?"#ff6b35":"#1e3050"),borderRadius:6,padding:"12px 14px"}}>
-                    <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:sp.maxP?10:0}}>
-                      <div style={{fontWeight:700,fontSize:15,flex:1,color:"#e8f4ff"}}>{p.name} <span style={{color:"#c0d8f0",fontWeight:400,fontSize:12}}>#{p.number||"?"}</span></div>
-                      <div style={{display:"flex",alignItems:"center",gap:8}}>
-                        <button onClick={()=>updPitch(p.id,p.pitchCount-1)} style={{width:64,height:64,borderRadius:8,border:"1px solid #1e3050",background:"#1c2534",color:"#c0d8f0",fontSize:28,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",touchAction:"manipulation",userSelect:"none"}}>−</button>
-                        <div style={{width:72,textAlign:"center",background:"#131920",border:"2px solid "+clr,borderRadius:6,color:clr,padding:"8px 4px",fontSize:22,fontWeight:700,fontFamily:"monospace",userSelect:"none"}}>{p.pitchCount}</div>
-                        <button onClick={()=>updPitch(p.id,p.pitchCount+1)} style={{width:64,height:64,borderRadius:8,border:"1px solid #1e3050",background:"#1c2534",color:clr,fontSize:28,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",touchAction:"manipulation",userSelect:"none"}}>+</button>
+                    <div style={{marginBottom:sp.maxP?10:0}}>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+                        <div style={{fontWeight:700,fontSize:15,color:"#e8f4ff"}}>{p.name} <span style={{color:"#c0d8f0",fontWeight:400,fontSize:12}}>#{p.number||"?"}</span></div>
+                        {atL&&<span style={{fontSize:11,color:"#ff2222",fontWeight:700,border:"1px solid #ff2222",borderRadius:3,padding:"2px 5px"}}>AT LIMIT</span>}
+                        {nrL&&!atL&&<span style={{fontSize:11,color:"#ff6b35",fontWeight:700,border:"1px solid #ff6b35",borderRadius:3,padding:"2px 5px"}}>NEAR LIMIT</span>}
                       </div>
-                      {atL&&<span style={{fontSize:11,color:"#ff2222",fontWeight:700,border:"1px solid #ff2222",borderRadius:3,padding:"2px 5px"}}>AT LIMIT</span>}
-                      {nrL&&!atL&&<span style={{fontSize:11,color:"#ff6b35",fontWeight:700,border:"1px solid #ff6b35",borderRadius:3,padding:"2px 5px"}}>NEAR LIMIT</span>}
+                      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:12}}>
+                        <button onClick={()=>updPitch(p.id,p.pitchCount-1)} style={{width:80,height:80,borderRadius:10,border:"1px solid #1e3050",background:"#1c2534",color:"#c0d8f0",fontSize:36,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",touchAction:"manipulation",userSelect:"none"}}>−</button>
+                        <div style={{width:90,textAlign:"center",background:"#131920",border:"2px solid "+clr,borderRadius:8,color:clr,padding:"10px 4px",fontSize:28,fontWeight:700,fontFamily:"monospace",userSelect:"none"}}>{p.pitchCount}</div>
+                        <button onClick={()=>updPitch(p.id,p.pitchCount+1)} style={{width:80,height:80,borderRadius:10,border:"1px solid #1e3050",background:"#1c2534",color:clr,fontSize:36,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",touchAction:"manipulation",userSelect:"none"}}>+</button>
+                      </div>
                     </div>
                     {sp.maxP&&<div style={{background:"#1c2534",borderRadius:4,height:6,overflow:"hidden"}}><div style={{height:"100%",width:pct+"%",background:clr,borderRadius:4,transition:"width 0.2s"}}/></div>}
                   </div>
