@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 
 const ALL_POS = ["Pitcher","Catcher","1st Base","2nd Base","3rd Base","Shortstop","Left Field","Center Field","Right Field"];
 const INFIELD  = ["Pitcher","Catcher","1st Base","2nd Base","3rd Base","Shortstop"];
@@ -239,15 +239,15 @@ function PitchReportModal({ onClose, team, division, date, time, maxP, pitchers,
     return { x: e.clientX - rect.left, y: e.clientY - rect.top };
   };
 
-  const startDraw = useCallback((e) => {
+  const startDraw = (e) => {
     e.preventDefault();
     const canvas = canvasRef.current;
     const pos = getPos(e, canvas);
     setDrawing(true);
     lastPos.current = pos;
-  }, []);
+  };
 
-  const draw = useCallback((e) => {
+  const draw = (e) => {
     e.preventDefault();
     if (!drawing) return;
     const canvas = canvasRef.current;
@@ -262,9 +262,9 @@ function PitchReportModal({ onClose, team, division, date, time, maxP, pitchers,
     ctx.stroke();
     lastPos.current = pos;
     setSigned(true);
-  }, [drawing]);
+  };
 
-  const stopDraw = useCallback(() => setDrawing(false), []);
+  const stopDraw = () => setDrawing(false);
 
   const clearSig = () => {
     const canvas = canvasRef.current;
