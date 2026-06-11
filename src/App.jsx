@@ -356,7 +356,7 @@ function PitchReportModal({ onClose, team, division, date, time, maxP, pitchers,
 
   return (
     <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:9999,display:"flex",alignItems:"center",justifyContent:"center",padding:16}}>
-      <div style={{background:"#0d1f35",border:"1px solid #1e3050",borderRadius:10,width:"100%",maxWidth:520,maxHeight:"90vh",overflowY:"auto",padding:20}}>
+      <div style={{background:"#0d1f35",border:"1px solid #1e3050",borderRadius:10,width:"100%",maxwidth:800,maxHeight:"90vh",overflowY:"auto",padding:20}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
           <div style={{fontWeight:700,fontSize:16,color:"#fff"}}>📋 Official Pitch Count Report</div>
           <button onClick={onClose} style={{background:"none",border:"none",color:"#aaa",fontSize:20,cursor:"pointer",lineHeight:1}}>✕</button>
