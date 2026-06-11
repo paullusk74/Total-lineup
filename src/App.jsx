@@ -355,7 +355,7 @@ function PitchReportModal({ onClose, team, division, date, time, maxP, pitchers,
 </div>
 <div class="sig-area">
   <b>Coach Signature:</b><br>
-  ${sigData ? `<img src="${sigData}" height="80" alt="Signature"/>` : "<em style='color:#888'>No signature provided</em>"}
+  ${sigData ? "<img src=\"" + sigData + "\" height=\"80\" alt=\"Signature\"/>" : "<em style='color:#888'>No signature provided</em>"}
   <div class="sig-line"></div>
   <div style="font-size:12px;margin-top:4px;">Date: ${date}</div>
 </div>
