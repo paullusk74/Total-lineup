@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { supabase } from './supabase';
+import Auth from './Auth';
 
 const ALL_POS = ["Pitcher","Catcher","1st Base","2nd Base","3rd Base","Shortstop","Left Field","Center Field","Right Field"];
 const INFIELD  = ["Pitcher","Catcher","1st Base","2nd Base","3rd Base","Shortstop"];
@@ -458,6 +460,8 @@ export default function App() {
   const [fieldInn,   setFieldInn]    = useState(1);
   const [dragIdx,    setDragIdx]     = useState(null);
   const [toast,      setToast]       = useState("");
+  const [user, setUser] = useState(null);
+  if (!user) return <Auth onLogin={() => setUser(true)} />;
 
   const sp=DIVS[div], activeTeam=teams.find(t=>t.id===activeId);
   const showToast=m=>{setToast(m);setTimeout(()=>setToast(""),3000);};
