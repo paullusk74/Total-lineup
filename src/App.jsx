@@ -1,4 +1,3 @@
-import { useState, useRef } from "react";
 import { supabase } from './supabase';
 import Auth from './Auth';
 
