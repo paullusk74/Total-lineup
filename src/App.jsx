@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { useState, useRef } from "react";
 import Auth from './Auth';
 
 const ALL_POS = ["Pitcher","Catcher","1st Base","2nd Base","3rd Base","Shortstop","Left Field","Center Field","Right Field"];
